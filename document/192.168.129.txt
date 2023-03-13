@@ -1,0 +1,73 @@
+192.168.129.128
+192.168.129.2
+
+
+export  ORACLE_HOME=/opt/oracle/product/19c/dbhome_1
+export  PATH=$PATH:/opt/oracle/product/19c/dbhome_1/bin
+export  ORACLE_SID=ORCLCDB
+
+启动监听：
+lsnrctl start
+启动数据库
+sqlplus / as sysdba
+startup;
+alter user sys identified by 000000;
+
+alter user system identified by 000000;
+
+
+plsq15激活码
+product code : ke4tv8t5jtxz493kl8s2nn3t6xgngcmgf3
+serial Number: 264452
+password: xs374ca
+
+export DISPLAY='192.168.146.1:0.0'
+
+
+
+
+
+/opt/oracle/product/19c/dbhome_1/rdbms/admin/utlsampl.sql
+
+alter user scott identified by 000000
+
+alter pluggable database ORCLPDB1 open;
+alter session set container=ORCLPDB1;
+
+conn c##scott/tiger
+
+GRANT CONNECT,RESOURCE,UNLIMITED TABLESPACE TO scott CONTAINER=current ;
+
+select USERNAME,ACCOUNT_STATUS,DEFAULT_TABLESPACE,TEMPORARY_TABLESPACE,CREATED from dba_users where USERNAME = 'SCOTT';
+
+
+DROP TABLE DEPT  PURGE ;
+DROP TABLE EMP  PURGE ;
+DROP TABLE BONUS  PURGE ;
+DROP TABLE SALGRADE  PURGE ;
+
+CONN SCOTT/tiger@ORCLPDB1
+
+
+select sys_context ('USERENV', 'CON_NAME') from dual;
+
+select table_name from user_tables;
+
+select USERNAME,ACCOUNT_STATUS,DEFAULT_TABLESPACE,TEMPORARY_TABLESPACE,CREATED from dba_users where USERNAME = 'C##SCOTT';
+select USERNAME,ACCOUNT_STATUS,DEFAULT_TABLESPACE,TEMPORARY_TABLESPACE,CREATED from dba_users where USERNAME = 'c##scott';
+
+orclpdb1
+
+
+
+ORCLPDB1 =
+    (DESCRIPTION =    
+        (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))       
+        (CONNECT_DATA =       
+            (SERVER = DEDICATED)        
+            (SERVICE_NAME = ORCLPDB1)            
+        )    
+    )
+
+LISTENER_ORCLPDB1 =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))
